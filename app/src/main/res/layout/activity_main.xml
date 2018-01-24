@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="fr.accropolis.teamdev.accropolis.controller.MainActivity"
+    android:icon="@mipmap/ic_launcher">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ll_top"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/accropolisban"
+                android:id="@+id/imageView10"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Favoriser la réappropriation \n citoyenne de la politique\n en décryptant l'actualité en direct."
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:id="@+id/textView2"
+                android:layout_below="@+id/imageView10"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccropolis"
+                android:gravity="center_vertical|center_horizontal"
+                android:textSize="17sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:id="@+id/ll_bot"
+            android:layout_below="@+id/ll_top">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccropolis"
+                android:layout_below="@+id/textView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/view" />
+
+            <TextView
+                android:text="Nous soutenir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccropolis"
+                android:textSize="20sp"
+                android:layout_below="@+id/view"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical" />
+                <!--android:layout_marginTop="20dp"-->
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_button"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textView3"
+                android:gravity="center"
+                android:layout_marginTop="15dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_tipeee_month"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|clip_horizontal"
+                        android:background="@drawable/shapeaccrocolor">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            app:srcCompat="@mipmap/ic_tipeee"
+                            android:id="@+id/imageView11" />
+
+                        <TextView
+                            android:text="Faire un don ponctuel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView6"
+                            android:layout_weight="1"
+                            android:textColor="@color/colorAccropolis"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:id="@+id/ll_donR"
+                    android:layout_below="@+id/ll_tipeee_month"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/ll_tipeee_donation"
+                        android:orientation="horizontal"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center_vertical|clip_horizontal"
+                        android:background="@drawable/shapeaccrocolor"
+
+                        android:layout_row="2"
+                        android:layout_column="0">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            app:srcCompat="@mipmap/ic_tipeee"
+                            android:id="@+id/imageView163" />
+
+                        <TextView
+                            android:text="Faire un don régulier"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView76"
+                            android:layout_weight="1"
+                            android:textColor="@color/colorAccropolis"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_mail"
+                    android:orientation="vertical"
+                    android:layout_width="250dp"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:layout_below="@+id/ll_tipeee_donation"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|clip_horizontal"
+                        android:background="@drawable/shapeblack"
+                        >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            app:srcCompat="@mipmap/ic_mail"
+                            android:id="@+id/imageView12" />
+
+                        <TextView
+                            android:text="Proposer  son aide "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView7"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
