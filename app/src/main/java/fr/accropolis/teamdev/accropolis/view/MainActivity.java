@@ -1,24 +1,20 @@
-package fr.accropolis.teamdev.accropolis.controller;
+package fr.accropolis.teamdev.accropolis.view;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.graphics.drawable.DrawableWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import fr.accropolis.teamdev.accropolis.R;
-import fr.accropolis.teamdev.accropolis.setting.SettingsActivity;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,10 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //display the logo instead of the name
-        getSupportActionBar().setLogo(R.drawable.accropolis_ban_mini);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setLogo(R.drawable.ic_accropolis_action_bar);
 
         //subscribe to topic
         FirebaseMessaging.getInstance().subscribeToTopic("accrolive");

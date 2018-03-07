@@ -1,4 +1,4 @@
-package fr.accropolis.teamdev.accropolis.controller;
+package fr.accropolis.teamdev.accropolis.view;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import fr.accropolis.teamdev.accropolis.R;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 public class About extends AppCompatActivity implements View.OnClickListener {
@@ -35,7 +35,7 @@ public class About extends AppCompatActivity implements View.OnClickListener {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //display the logo instead of the name
-        getSupportActionBar().setLogo(R.drawable.accropolis_ban_mini);
+        getSupportActionBar().setLogo(R.drawable.accropolisban);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("");

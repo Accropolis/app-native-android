@@ -1,22 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".controller.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".view.MainActivity">
 
 
     <item android:id="@+id/action_schedule"
-        android:icon="@drawable/ic_calendar"
+        android:icon="@mipmap/ic_calendar"
         android:title="Programmation"
         android:orderInCategory="1"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_about"
-        android:icon="@drawable/ic_about"
+        android:icon="@mipmap/ic_about"
         android:title="About"
         android:orderInCategory="1"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_settings"
-        android:icon="@drawable/ic_settings"
+        android:icon="@mipmap/ic_settings"
         android:title="@string/settings"
         android:orderInCategory="2"
         app:showAsAction="ifRoom" />

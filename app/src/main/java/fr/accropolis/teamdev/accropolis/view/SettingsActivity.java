@@ -1,9 +1,7 @@
-package fr.accropolis.teamdev.accropolis.setting;
+package fr.accropolis.teamdev.accropolis.view;
 
 
 import android.annotation.TargetApi;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,14 +21,14 @@ import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
-import java.util.Calendar;
 import java.util.List;
 
 import fr.accropolis.teamdev.accropolis.R;
-import fr.accropolis.teamdev.accropolis.service.AlarmReceiverSchedule;
+import fr.accropolis.teamdev.accropolis.setting.AppCompatPreferenceActivity;
+import fr.accropolis.teamdev.accropolis.setting.NotificationScheduleAlarm;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 /**
@@ -152,8 +150,13 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayUseLogoEnabled(true);
+            actionBar.setLogo(R.drawable.accropolisban);
+
         }
+
     }
 
     /**

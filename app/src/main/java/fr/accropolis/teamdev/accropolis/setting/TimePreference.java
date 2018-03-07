@@ -10,7 +10,7 @@ import android.widget.TimePicker;
 import fr.accropolis.teamdev.accropolis.tools.Format;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import fr.accropolis.teamdev.accropolis.setting.NotificationScheduleAlarm;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 public class BootUpReceiver extends BroadcastReceiver {

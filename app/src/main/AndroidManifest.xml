@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".controller.MainActivity"
-            android:banner="@drawable/ic_calendar">
+            android:name=".view.MainActivity"
+            android:banner="@mipmap/ic_accroban">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".setting.SettingsActivity"
+            android:name=".view.SettingsActivity"
             android:label="@string/title_activity_settings" />
 
         <service android:name=".service.firebase.AccroFirebaseMessagingService">
@@ -35,13 +35,13 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".controller.About" />
+        <activity android:name=".view.About" />
 
         <receiver
             android:name=".service.AlarmReceiverSchedule"
             android:process=":remote" />
 
-        <activity android:name=".controller.ScheduleActivity" />
+        <activity android:name=".view.ScheduleActivity" />
 
         <receiver android:enabled="true" android:name=".service.BootUpReceiver"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">

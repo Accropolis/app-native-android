@@ -12,32 +12,29 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.WakefulBroadcastReceiver;
+import android.text.GetChars;
 
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
-import fr.accropolis.teamdev.accropolis.FakeSchedule;
 import fr.accropolis.teamdev.accropolis.R;
-import fr.accropolis.teamdev.accropolis.controller.ScheduleActivity;
+import fr.accropolis.teamdev.accropolis.controller.GetSchedule;
+import fr.accropolis.teamdev.accropolis.view.ScheduleActivity;
 import fr.accropolis.teamdev.accropolis.model.Live;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 
-public class AlarmReceiverSchedule extends WakefulBroadcastReceiver {
+public class AlarmReceiverSchedule extends WakefulBroadcastReceiver implements GetSchedule.GetScheduleListener{
+    Context mContext;
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
-        //TODO replace FakeSchedule.today() by true data
-        List<Live> schedule = FakeSchedule.today();
-
-        if(schedule.size() > 0){
-            this.sendNotification(schedule, context);
-        }
+        mContext = context;
+        new GetSchedule(context,this, 1).execute();
     }
 
     /**
@@ -68,7 +65,7 @@ public class AlarmReceiverSchedule extends WakefulBroadcastReceiver {
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
         for(Iterator<Live> live = schedule.iterator(); live.hasNext(); ) {
             Live item = live.next();
-            inboxStyle.addLine(item.getDate().get(Calendar.HOUR_OF_DAY) + "H " + item.getTitle());
+            inboxStyle.addLine(item.getDate().get(Calendar.HOUR_OF_DAY) + "H" + String.format("%02d", schedule.get(0).getDate().get(Calendar.MINUTE))+ " " + item.getTitle());
         }
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(cont)
@@ -79,7 +76,7 @@ public class AlarmReceiverSchedule extends WakefulBroadcastReceiver {
                 .setSound(soundUri)
                 .setContentIntent(pendingIntent)
                 .setStyle(inboxStyle)
-                .setContentText(schedule.get(0).getDate().get(Calendar.HOUR_OF_DAY) + "H " + schedule.get(0).getTitle() + (schedule.size() > 1?" ...":""));
+                .setContentText(schedule.get(0).getDate().get(Calendar.HOUR_OF_DAY) + "H" + String.format("%02d", schedule.get(0).getDate().get(Calendar.MINUTE))+ " " + schedule.get(0).getTitle() + (schedule.size() > 1?" ...":""));
 
         if(vibrate){
             notificationBuilder.setVibrate(new long[] { 1000,1000,1000});
@@ -89,5 +86,19 @@ public class AlarmReceiverSchedule extends WakefulBroadcastReceiver {
                 (NotificationManager) cont.getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 , notificationBuilder.build());
+    }
+
+    @Override
+    public void onSucces(List<Live> liveList) {
+        List<Live> schedule = liveList;
+
+        if(schedule.size() > 0){
+            this.sendNotification(schedule, mContext);
+        }
+    }
+
+    @Override
+    public void onError(Exception e) {
+
     }
 }

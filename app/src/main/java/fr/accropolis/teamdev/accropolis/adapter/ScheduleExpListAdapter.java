@@ -1,6 +1,8 @@
 package fr.accropolis.teamdev.accropolis.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +18,19 @@ import java.util.Locale;
 import fr.accropolis.teamdev.accropolis.R;
 import fr.accropolis.teamdev.accropolis.model.Live;
 import fr.accropolis.teamdev.accropolis.tools.Format;
+import fr.accropolis.teamdev.accropolis.tools.smartimage.SmartImage;
 import fr.accropolis.teamdev.accropolis.tools.smartimage.SmartImageView;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
+ *
+ * Bridge between the data and the view.
  */
-
 public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
 
     Context context;
     List<Live> schedule;
     private LayoutInflater layoutInflater;
-    Calendar currentDate;
 
     public ScheduleExpListAdapter(Context context, List<Live> schedule) {
         this.context = context;
@@ -41,8 +44,11 @@ public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        // only one child
-        return 1;
+        if(schedule.get(groupPosition).getContent() ==null || schedule.get(groupPosition).getContent().isEmpty()){
+            return 0;
+        }else {
+            return 1;
+        }
     }
 
     @Override
@@ -84,7 +90,6 @@ public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
         Live live = this.schedule.get(groupPosition);
 
         //instantiate view component
-        //WebView wvImage = (WebView) convertView.findViewById(R.id.wv_image);
         SmartImageView ivImage = (SmartImageView) convertView.findViewById(R.id.iv_image) ;
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
         TextView tvDate = (TextView) convertView.findViewById(R.id.tv_date);
@@ -101,7 +106,6 @@ public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
                 tvNextLive.setVisibility(View.VISIBLE);
                 tvNextLive.setBackgroundColor(Color.WHITE);
                 tvTitle.setTextColor(Color.WHITE);
-
                 convertView.setBackgroundColor(context.getResources().getColor(R.color.colorNextLive));
                 break;
             case 1:
@@ -139,8 +143,11 @@ public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
         }
 
         //display image
-        ivImage.setImageUri(live.getUriImage());
-
+        if(live.getUriImage()!=null && !live.getUriImage().isEmpty()){
+            ivImage.setImageUri(live.getUriImage());
+        }else{
+            ivImage.setVisibility(View.GONE);
+        }
 
         tvTitle.setText(live.getTitle());
 
@@ -149,6 +156,7 @@ public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        Live live = this.schedule.get(groupPosition);
 
         if (layoutInflater == null) {
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -159,7 +167,7 @@ public class ScheduleExpListAdapter extends BaseExpandableListAdapter{
         }
 
 
-        Live live = this.schedule.get(groupPosition);
+
 
         TextView tvContent = (TextView) convertView.findViewById(R.id.tv_content);
         tvContent.setText(live.getContent());

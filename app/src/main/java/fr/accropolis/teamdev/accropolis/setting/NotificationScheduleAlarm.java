@@ -11,7 +11,7 @@ import java.util.Calendar;
 import fr.accropolis.teamdev.accropolis.service.AlarmReceiverSchedule;
 
 /**
- * Created by Nicolas Padiou on 25/02/17.
+ * Created by nspu on 25/02/17.
  */
 
 public class NotificationScheduleAlarm {
